@@ -854,12 +854,12 @@ $(document).ready(function() {
     var myDoughnutChart = new Chart(doughnut, {
       type: "doughnut",
       data: {
-        labels: ["đã giao", "thành công", "đang xử lý", "bị hủy", "trả lại", "bị lỗi"],
+        labels: ["Đã hoàn thành", "Chờ xác nhận", "Đang vận chuyển", "Đã hủy"],
         datasets: [
           {
-            label: ["đã giao", "thành công", "đang xử lý", "bị hủy", "trả lại", "bị lỗi"],
-            data: [4100, 2500, 1800, 2300, 400, 150],
-            backgroundColor: ["#88aaf3", "#50d7ab", "#9586cd", "#f3d676", "#ed9090", "#a4d9e5"],
+            label: ["Đã hoàn thành", "Chờ xác nhận", "Đang vận chuyển", "Đã hủy"],
+            data: [4100, 2500, 1800, 2300],
+            backgroundColor: ["#88aaf3", "#50d7ab", "#9586cd", "#f3d676"],
             borderWidth: 1
             // borderColor: ['#88aaf3','#29cc97','#8061ef','#fec402']
             // hoverBorderColor: ['#88aaf3', '#29cc97', '#8061ef', '#fec402']

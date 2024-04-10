@@ -39,7 +39,7 @@ public class Order implements Serializable{
 		super();
 	}
 	public Order(Integer id, User user, Date createDate, Integer status, String address, String phoneNumber,
-			List<OrderDetail> orderDetails) {
+			List<OrderDetail> orderDetails ) {
 		super();
 		this.id = id;
 		this.user = user;
@@ -85,6 +85,7 @@ public class Order implements Serializable{
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 	@JsonIgnore
 	public List<OrderDetail> getOrderDetails() {
 		return orderDetails;

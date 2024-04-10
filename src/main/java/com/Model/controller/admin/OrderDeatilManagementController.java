@@ -36,19 +36,11 @@ public class OrderDeatilManagementController {
 
 	RestTemplate restTemplate = new RestTemplate();
 	
-	@RequestMapping("/tco-admin/order-detail")
-	public String getAdmin(Model model) {
-		List<OrderDetail> list = orderservice.findAll();
-		model.addAttribute("orderdetail",list);
+	@RequestMapping("/find/{id}")
+	public String editOrder(Model model, @PathVariable("id")Integer id) {
+		List <OrderDetail> order=  orderservice.findByOrderIdContaining(id);
+		model.addAttribute("orders", order);
 		return "tco-admin/order/order-detail.html";
-	}
-	@PostMapping("/model/order/delete/{id}")
-	public OrderDetail deleteOrderdetail(Model model, @PathVariable("id") Integer id) {
-		OrderDetail order= orderservice.findById(id);
-		order.setQuantity(100);
-		
-		
-		return orderservice.update(order);
 	}
 //
 //	@RequestMapping("/tco-admin/category/{id}")
@@ -94,21 +86,7 @@ public class OrderDeatilManagementController {
 //
 //	}
 //
-//	@RequestMapping("tco-admin/category/update/{id}")
-//	public String updateCategory(RedirectAttributes redirecAttributes, Model model,
-//			@Validated @ModelAttribute("categoryForm") Category category,Errors errors,
-//			@RequestParam("imageIcon") Optional<MultipartFile> imageIcon) {
-//		if (errors.hasErrors()) {
-//			model.addAttribute("errorMessage", "Cập nhật danh mục thất bại!");
-//			return "tco-admin/category/main-category";
-//		}
-//		setImageIcon(category, 1, imageIcon);
-//		String url = "http://localhost:8080/api/categories/" + category.getId();
-//		HttpEntity<Category> httpEntity = new HttpEntity<Category>(category);
-//		restTemplate.put(url, httpEntity);
-//		redirecAttributes.addFlashAttribute("message","Sửa danh mục thành công!");
-//		return "redirect:/tco-admin/category/" + category.getId();
-//	}
+	
 //
 //	@RequestMapping("/tco-admin/category/delete/{id}")
 //	public String deleteCategory(RedirectAttributes redirectAttributes, @PathVariable("id") String id) {

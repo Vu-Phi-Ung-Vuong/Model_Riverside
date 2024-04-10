@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +22,9 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.Model.entity.Order;
 import com.Model.entity.User;
+import com.Model.service.UserService;
 import com.Model.util.PasswordUtil;
 
 @Controller
@@ -29,6 +32,8 @@ public class UserController {
 
     @Autowired
     PasswordUtil passwordUtil;
+    @Autowired
+    UserService userService;
     private RestTemplate restTemplate = new RestTemplate();
     @GetMapping("/user/change-password")
     public String getChangePasswordForm() {
@@ -95,6 +100,8 @@ public class UserController {
         return "tco-client/user/user-profile.html";
     }
     
+    
+    
     @RequestMapping("/user/add")
     public String getAdd(Model model, Authentication authentication) {
     	String username = authentication.getName();
@@ -103,5 +110,14 @@ public class UserController {
     	User userEdit = respEntity.getBody();
     	model.addAttribute("userEdit", userEdit);
     	return "tco-client/user/user-add.html";
+    }
+    
+    
+    
+    @RequestMapping("/findOrder/{user}")
+    public String getOrder(Model model, @PathVariable("user")String user) {
+    	List<Order> list = userService.findOrderByUser(user);
+		model.addAttribute("orders",list);
+		return "tco-client/shop/history.html";
     }
 }

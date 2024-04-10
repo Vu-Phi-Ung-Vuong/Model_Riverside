@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.Model.entity.Order;
 import com.Model.entity.Product;
 import com.Model.service.OrderService;
 import com.Model.service.ProductService;
@@ -41,6 +42,15 @@ public class HomeController {
 	@RequestMapping("/order/detail/{id}")
 	public String detail (@PathVariable("id") Integer id, Model model) {
 		model.addAttribute("order",orderService.findById(id));
+		return "tco-client/shop/detail.html";
+	}
+	@RequestMapping("/editStatus/{id}")
+	public String editOrder3(Model model, @PathVariable("id") Integer id) {
+		Order order= orderService.findById(id);
+		order.setStatus(3);
+		orderService.update(order);
+		Order list = orderService.findById(id);
+		model.addAttribute("order",list);
 		return "tco-client/shop/detail.html";
 	}
 }

@@ -12,7 +12,7 @@ th:replace="~{tco-admin/layout-admin/index :: dynamic(~{::main})}">
 		<div class="breadcrumb-wrapper breadcrumb-wrapper-2">
 			<h1>Bảng Hóa Đơn</h1>
 			<p class="breadcrumbs"><span><a href="/admin">Trang Chủ</a></span>
-				<span><i class="mdi mdi-chevron-right"></i></span>Hóa Đơn
+				<span><i class="mdi mdi-chevron-right"></i></span> Đang vận chuyển
 			</p>
 		</div>
 		<div class="row">
@@ -35,11 +35,11 @@ th:replace="~{tco-admin/layout-admin/index :: dynamic(~{::main})}">
 
 								<tbody>
 								
-									<tr th:each="order : ${orders}"  th:if="${order.status} == NULL">
+									<tr th:each="order : ${orders}"  th:if="${order.status} == 1">
 										<td>[[${order.id}]]</td>
 										<td th:text="${order.user.username}"></td>
 										<td>[[${order.createDate}]]</td>
-										<td th:if="${order.status} != 1"><span class="mb-2 mr-2 badge badge-secondary">Chờ xác nhận</span>
+										<td th:if="${order.status} == 1"><span class="mb-2 mr-2 badge badge-secondary">Đang vận chuyển</span>
 										</td>
 										<td>[[${order.address}]]</td>
 										<td>[[${order.phoneNumber}]]</td>

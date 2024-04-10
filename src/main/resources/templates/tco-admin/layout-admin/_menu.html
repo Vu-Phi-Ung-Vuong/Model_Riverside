@@ -70,6 +70,32 @@
                         </ul>
                     </div>
                 </li>
+                
+                
+                <!-- COMMENT -->
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)">
+                        <i class=" mdi mdi-message"></i>
+                        <span class="nav-text">Bình luận</span> <b class="caret"></b>
+                    </a>
+                    <div class="collapse">
+                        <ul class="sub-menu" id="comments" data-parent="#sidebar-menu">
+                            <li class="">
+                                <a class="sidenav-item-link" th:href="@{/tco-admin/comment/listcomment}">
+                                    <span class="nav-text">Bình luận mới</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="sidenav-item-link" th:href="@{/tco-admin/comment/listcomment1}">
+                                    <span class="nav-text">Danh sách  </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                
+                
+                
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)">
                         <i class="mdi mdi-palette-advanced"></i>
@@ -105,15 +131,29 @@
                         <ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
                             <li class="">
                                 <a class="sidenav-item-link" href="/tco-admin/listorder">
-                                    <span class="nav-text">Danh sách hóa đơn</span>
+                                    <span class="nav-text">Đơn hàng mới</span>
                                 </a>
                             </li>
-
+							<li class="">
+                                <a class="sidenav-item-link" href="/tco-admin/listorder1">
+                                    <span class="nav-text">Đơn hàng đang vận chuyển</span>
+                                </a>
+                            </li>
                             <li class="">
+                                <a class="sidenav-item-link" href="/tco-admin/listorder2">
+                                    <span class="nav-text">Đơn hàng đã hoàn thành</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="sidenav-item-link" href="/tco-admin/listorder3">
+                                    <span class="nav-text">Đơn hàng đã hủy</span>
+                                </a>
+                            </li>
+                          <!--   <li class="">
                                 <a class="sidenav-item-link" href="/tco-admin/order-detail">
                                     <span class="nav-text">Hóa đơn chi tiết</span>
                                 </a>
-                            </li>
+                            </li> -->
 
                         </ul>
                     </div>

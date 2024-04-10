@@ -29,16 +29,18 @@ public class OrderDetail implements Serializable{
 	private Product product;
 	private Integer quantity;
 	private Double price;
+	private String name_product;
 	public OrderDetail() {
 		super();
 	}
-	public OrderDetail(Integer id, Order order, Product product, Integer quantity, Double price) {
+	public OrderDetail(Integer id, Order order, Product product, Integer quantity, Double price,Integer status, String name_product) {
 		super();
 		this.id = id;
 		this.order = order;
 		this.product = product;
 		this.quantity = quantity;
 		this.price = price;
+		this.name_product= name_product;
 	}
 	public Integer getId() {
 		return id;
@@ -69,6 +71,12 @@ public class OrderDetail implements Serializable{
 	}
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	public String getName() {
+		return name_product;
+	}
+	public void setName(String name_product) {
+		this.name_product = name_product;
 	}
 	
 

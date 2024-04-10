@@ -72,7 +72,7 @@
                                 <a th:href="@{/home}"><img th:src="@{/assets/images/logo/logo-5.png}"
                                         alt="Site Logo" /><img class="dark-logo"
                                         th:src="@{/assets/images/logo/dark-logo.png}" alt="Site Logo"
-                                        style="display: none;" /></a>
+                                        style="display: none" /></a>
                             </div>
                         </div>
                         <!-- Ec Header Logo End -->
@@ -99,8 +99,8 @@
                                     <th:block th:if="${#request.remoteUser}">
                                         <button class="dropdown-toggle" data-bs-toggle="dropdown">
                                             <img src="assets/images/icons/user_5.svg" class="svg_img top_svg"
-                                                alt="" /><span class="ec-btn-title">xin chào,
-                                                [[${#request.remoteUser}]]</span>
+                                                alt="" /><span class="ec-btn-title">xin chào, <div  id="user"> [[${#request.remoteUser}]]</div>
+                                               </span>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <li><a class="dropdown-item" th:href="@{/user/profile}">Thông tin tài
@@ -109,8 +109,7 @@
 								<li><a class="dropdown-item" href="checkout.html">Thanh
 										toaÌ�n</a></li>
 								 -->
-                                            <li><a class="dropdown-item" th:href="@{/order/history}">Lịch sử giao
-                                                    dịch</a></li>
+                                            <li><a class="dropdown-item" th:href="@{|/findOrder/${#request.remoteUser}|}">Lịch sử mua hàng</a></li>
                                             <li><a class="dropdown-item" th:href="@{/user/change-password}">Quên mật
                                                     khẩu</a></li>
                                             <li><a class="dropdown-item" th:href="@{/Logout}">Đăng xuất</a></li>
@@ -138,7 +137,7 @@
                                 <a href="wishlist.html" class="ec-header-btn ec-header-wishlist">
                                     <div class="header-icon"><img th:src="@{/assets/images/icons/wishlist.svg}"
                                             class="svg_img header_svg" alt="" /></div>
-                                    <span class="ec-header-count">4</span>
+                                    <span class="ec-header-count">{{cart.id}}</span>
                                 </a>
                                 <!-- Header wishlist End -->
                                 <!-- Header Cart Start -->
@@ -159,7 +158,6 @@
         <div class="ec-header-bottom d-lg-none">
             <div class="container position-relative">
                 <div class="row ">
-
                     <!-- Ec Header Logo Start -->
                     <div class="col">
                         <div class="header-logo">

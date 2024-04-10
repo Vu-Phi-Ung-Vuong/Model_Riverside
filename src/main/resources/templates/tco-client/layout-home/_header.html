@@ -28,7 +28,7 @@
 						<th:block th:if="${#request.remoteUser}">
 							<button class="dropdown-toggle" data-bs-toggle="dropdown">
 								<img src="assets/images/icons/user_5.svg" class="svg_img top_svg"
-									alt="" /><span class="ec-btn-title">Xin chào, [[${#request.remoteUser}]]</span>
+									alt="" /><span class="ec-btn-title" >xin chào, <div  id="user"> [[${#request.remoteUser}]]</div></span>
 							</button>
 							<ul class="dropdown-menu dropdown-menu-right">
 								<li><a class="dropdown-item" th:href="@{/user/profile}">Thông tin tài khoản</a></li>
@@ -36,7 +36,7 @@
 								<li><a class="dropdown-item" href="checkout.html">Thanh
 										toán</a></li>
 								 -->
-								<li><a class="dropdown-item" th:href="@{/order/history}">Lịch sử giao dịch</a></li>
+								<li><a class="dropdown-item" th:href="@{|/findOrder/${#request.remoteUser}|}">Lịch sử mua hàng</a></li>
 								<li><a class="dropdown-item" th:href="@{/user/change-password}">Đổi mật khẩu</a></li>
 								<li><a class="dropdown-item" th:href="@{/Logout}">Đăng xuất</a></li>
 							</ul>
@@ -133,15 +133,18 @@
 
 						<!-- Header wishlist End -->
 						<!-- Header Cart Start -->
-						<a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
-							<div class="header-icon">
-								<img src="assets/images/icons/cart_5.svg"
-									class="svg_img header_svg" alt="" />
-							</div> <span class="ec-btn-title"><span class="ec-cart-count">{{cart.count}}</span>
-								sản phẩm - {{cart.formatNumber(cart.amount)}} VNĐ</span>
-
-						</a>
-						<!-- Header Cart End -->
+							<a href="#ec-side-cart" class="ec-header-btn ec-side-toggle">
+								<div class="header-icon">
+									<img src="assets/images/icons/cart_5.svg"
+										class="svg_img header_svg" alt="" />
+								</div>
+								
+								<span class="ec-btn-title">
+									<span class="ec-cart-count">{{cart.count}} 
+									 sản phẩm {{cart.formatNumber(cart.amount)}} VNĐ </span>
+                                    </span>
+							</a>
+							<!-- Header Cart End -->
 					</div>
 				</div>
 			</div>

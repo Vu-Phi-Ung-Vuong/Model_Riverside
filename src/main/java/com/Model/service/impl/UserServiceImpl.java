@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Model.entity.Order;
 import com.Model.entity.User;
 import com.Model.repository.UserRepository;
 import com.Model.service.UserService;
@@ -35,5 +36,9 @@ public class UserServiceImpl implements UserService{
     @Override
     public User findByActivateCode(String activateCode) {
         return userRepository.findByActivateCode(activateCode);
+    }
+    @Override
+    public List<Order> findOrderByUser(String username) {
+        return userRepository.findOrderByUser(username);
     }
 }

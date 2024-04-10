@@ -21,7 +21,6 @@ import com.Model.service.ProductService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/orderdetail")
 public class OrderDetailAPI {
 	@Autowired
 	OrderDetailService orderdetail;
@@ -32,22 +31,25 @@ public class OrderDetailAPI {
 	}
 	
 	
-	@GetMapping("{id}")
+	@GetMapping("/api/orderdetail/{id}")
 	public OrderDetail getOne(@PathVariable("id") Integer id) {
 		return orderdetail.findById(id);
 	}
-	
-	@PostMapping
+	@GetMapping("/api/orderdetail/find/{id}")
+	public List<OrderDetail> getorder(@PathVariable("id") Integer id) {
+		return  orderdetail.findByOrderIdContaining(id);
+	}
+	@PostMapping("api/order")
 	public OrderDetail create(@RequestBody OrderDetail order) {
 		return orderdetail.create(order);
 	}
 	
-	@PutMapping("{id}")
+	@PutMapping("/api/orderdetail/{id}")
 	public OrderDetail update(@RequestBody  OrderDetail order) {
 		return orderdetail.update(order);
 	}
 	
-	@DeleteMapping("{id}")
+	@DeleteMapping("/api/orderdetail/{id}")
 	public void delete(@PathVariable("id") Integer id) {
 		orderdetail.delete(id);
 	}

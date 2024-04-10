@@ -10,4 +10,6 @@ public interface OrderDetailService {
 	OrderDetail create(OrderDetail order);
 	OrderDetail update(OrderDetail order);
 	void delete(Integer id);
+	List<OrderDetail> findByOrderIdContaining(Integer id);
+	
 }

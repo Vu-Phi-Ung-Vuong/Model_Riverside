@@ -62,4 +62,8 @@ public class SecurityClientConfig extends WebSecurityConfigurerAdapter{
 		http.logout().logoutUrl("/Logout").logoutSuccessUrl("/logout");
 		http.exceptionHandling().accessDeniedHandler(null);
 	}
+
+	
+
+	
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Model.entity.Order;
 import com.Model.entity.Role;
 import com.Model.entity.User;
 import com.Model.service.RoleService;
@@ -30,6 +31,10 @@ public class UserAPI {
     @GetMapping("/api/user")
     public ResponseEntity<List<User>> getUsers(){
         return ResponseEntity.ok(userService.getAll());
+    }
+    @GetMapping("/api/find/{username}")
+    public List<Order> getOrder(@PathVariable("username") String username){
+        return userService.findOrderByUser(username);
     }
 
     @GetMapping("/api/user/{username}")

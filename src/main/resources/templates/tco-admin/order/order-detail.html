@@ -22,7 +22,7 @@
 							<div
 								class="card-header card-header-border-bottom d-flex justify-content-between">
 								<h2 class="ec-odr">
-									<tr th:each="item : ${orderdetail}">
+									<tr th:each="item : ${orders}">
 							</div>
 							<div class="card-body">
 								<div class="row"></div>
@@ -35,21 +35,23 @@
 												<thead>
 													<tr>
 														<th>ID</th>
-														<th>ID_HóaĐơn</th>
-														<th>ID_SảnPhẩm</th>
+														<th>SảnPhẩm</th>
 														<th>Số_Lượng</th>
 														<th>Giá</th>
+														<th>Khách hàng</th>
+														<th>Địa chỉ</th>
 														<th>Thao tác</th>
 													</tr>
 												</thead>
 
 												<tbody>
-													<tr th:each="item : ${orderdetail}" th:unless="${item.quantity} == 100">
+													<tr th:each="item : ${orders}" th:unless="${item.quantity} == 100">
 														<td>[[${item.id}]]</td>
-														<td>[[${item.order.id}]]</td>
-														<td>[[${item.product.id}]]</td>
+														<td>[[${item.product.name}]]</td>
 														<td>[[${item.quantity}]]</td>
 														<td>[[${item.price}]]</td>
+														<td>[[${item.order.user.username}]]</td>
+														<td>[[${item.order	.address}]]</td>
 														<td>
 															<div class="btn-group mb-1">
 																<button type="button"
@@ -64,23 +66,21 @@
 
 																<div class="dropdown-menu">
 																	<a class="dropdown-item"
-																		th:href="@{|/model/order/delete/${item.id}|}">Xóa</a>
+																		th:href="@{|/order/edit1/${item.order.id}|}">Đang vận chuyển</a>
+									
+											
+																	<a class="dropdown-item"
+																		th:href="@{|/order/edit2/${item.order.id}|}">Đã hoàn thành</a>
+													
+												
+																	<a class="dropdown-item"
+																		th:href="@{|/order/edit3/${item.order.id}|}">Hủy</a>
 																</div>
 															</div>
 														</td>
 
 													</tr>
-													<tr>
-														<td colspan="4"></td>
-														<td class="text-right"><strong>Phí Vận
-																Chuyển</strong></td>
-														<td class="text-right"><strong>N/A</strong></td>
-													</tr>
-													<tr ng-repeat="amount in amount">
-														<td colspan="4"></td>
-														<td class="text-right"><strong>Tổng</strong></td>
-														<td class="text-right"><strong>{{orderdetail.amount}}</strong></td>
-													</tr>
+													
 
 
 												</tbody>
@@ -128,7 +128,7 @@
 												<i class="mdi mdi-cart"></i>
 											</div>
 										</div>
-										<h4 class="step-title">Đặt hàng/h4>
+										<h4 class="step-title">Đặt hàng<h4>
 									</div>
 									<div class="step completed">
 										<div class="step-icon-wrap">

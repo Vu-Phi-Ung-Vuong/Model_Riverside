@@ -93,25 +93,25 @@
                                                             th:src="@{|/images/products/${p.image2}|}" alt="Product" />
                                                     </a>
                                                     <span class="percentage">20%</span>
-                                                    <a href="#" class="quickview" data-link-action="quickview"
+                                            <!--       <a href="#" class="quickview" data-link-action="quickview"
                                                         title="Quick view" data-bs-toggle="modal"
                                                         data-bs-target="#ec_quickview_modal"><img
                                                             th:src="@{|/assets/images/icons/quickview.svg|}"
                                                             class="svg_img pro_svg" alt="" /></a>
                                                     <div class="ec-pro-actions">
-                                                        <a href="#" class="ec-btn-group compare"
+                                                         <a href="#" class="ec-btn-group compare"
                                                             title="Compare"><img
                                                                 th:src="@{|/assets/images/icons/compare.svg|}"
-                                                                class="svg_img pro_svg" alt="" /></a>
+                                                                class="svg_img pro_svg" alt="" /></a> 
                                                         <a title="Add To Cart" class=" add-to-cart"
                                                             th:attr="ng-click=@{|cart.add(${p.id})|}"><img
                                                                 th:src="@{|/assets/images/icons/cart.svg|}"
-                                                                class="svg_img pro_svg" alt="" /> Add To Cart</a>
+                                                                class="svg_img pro_svg" alt="" /> Add To Cart</a>  
                                                         <a href="#" class="ec-btn-group wishlist" title="Wishlist"><img
                                                                 th:src="@{|/assets/images/icons/wishlist.svg|}"
-                                                                class="svg_img pro_svg" alt="" /></a>
+                                                                class="svg_img pro_svg" alt="" /></a>  
                                                     </div>
-                                                </div>
+                                                </div>-->  
                                             </div>
                                             <div class="ec-pro-content">
                                                 <h5 class="ec-pro-title"><a href="product-left-sidebar.html"
@@ -140,6 +140,7 @@
                             <div class="ec-pro-pagination">
                                 <ul th:if="${items.totalPages > 1}" class="ec-pro-pagination-inner">
                                     <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                                    
                                         <li><a th:if="${cid} != null and ${scid} == null" class="next"
                                                 th:href="@{|/product/list/page/${i}?cid=${cid}|}">[[${i}]]</a></li>
                                         <li><a th:if="${scid} != null and ${cid} == null" class="next"
